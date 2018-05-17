@@ -45,7 +45,7 @@ public class GravarEnfermeiroAction implements Action {
             Enfermeiro enfermeiro = new Enfermeiro(cel, nome, cpf, cep, numero, complemento, endereco, bairro, cidade, estado, email, data, sexo, tel, cel,status);
             try {
                 EnfermeiroDAO.getInstance().save(enfermeiro);
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("FrontController?action=LerEnfermeiro");
             } catch (ClassNotFoundException ex) {
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

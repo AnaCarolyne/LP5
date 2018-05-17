@@ -8,10 +8,12 @@ package action;
 import controller.Action;
 import java.io.IOException;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Paciente;
 import persistence.PacienteDAO;
+import state.PacienteConvenio;
 
 /**
  *
@@ -39,13 +41,21 @@ public class GravarPacienteAction implements Action {
         int cel = Integer.parseInt(request.getParameter("txtCel"));
         String convenio = request.getParameter("txtConvenio");
          String status = request.getParameter("txtStatus");
+         String ins = request.getParameter("txtIns");
+         
+        PacienteConvenio p = new PacienteConvenio();
+         p.setNome(nome);
+         p.setInstituicaoOrigem(ins);
+         
         if (nome.equals("") || email.equals((""))) {
             response.sendRedirect("index.jsp");
         } else {
-            Paciente contato = new Paciente(cel, nome, cpf, cep, numero, complemento, endereco, bairro, cidade, estado, email, data, sexo, tel, cel, convenio,status);
+            Paciente contato = new Paciente(cel, nome, cpf, cep, numero, complemento, endereco, bairro, cidade, estado, email, data, sexo, tel, cel, convenio,status,ins);
+            contato.setOrigemIns(p.getDadosPaciente());
             try {
                 PacienteDAO.getInstance().save(contato);
-                response.sendRedirect("sucesso.jsp");
+               request.setAttribute("oc",contato.getOrigemIns());
+              response.sendRedirect("FrontController?action=LerPaciente");
             } catch (ClassNotFoundException ex) {
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

@@ -26,28 +26,6 @@ public class LerConsultaAction implements Action {
     }
 
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String acao = request.getParameter("acao");
-        if (acao.equals("prepararDados")) {
-            prepararDados(request, response);
-        }else{
-            LerDados(request, response);
-        }
-    }
-
-    public void prepararDados(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            request.setAttribute("medicos", MedicoDAO.obterMedicos());
-            request.setAttribute("pacientes", PacienteDAO.obterPacientes());
-            RequestDispatcher view = request.getRequestDispatcher("consultaCadastro.jsp");
-            view.forward(request, response);
-        } catch (ServletException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void LerDados(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             request.setAttribute("consultas", ConsultaDAO.obterConsultas());
             RequestDispatcher view = request.getRequestDispatcher("consultaLer.jsp");

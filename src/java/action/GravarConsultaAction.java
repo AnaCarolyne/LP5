@@ -34,10 +34,10 @@ public class GravarConsultaAction implements Action {
         if (nomeMedico.equals("") || nomePaciente.equals((""))) {
             response.sendRedirect("index.jsp");
         } else {
-            Consulta consulta = new Consulta(0, nomeMedico, nomePaciente, data,inicio, terminio, obs);
+            Consulta consulta = new Consulta(0, nomeMedico, nomePaciente,inicio, terminio, data, obs);
             try {
                 ConsultaDAO.getInstance().save(consulta);
-                response.sendRedirect("sucesso.jsp");
+                response.sendRedirect("FrontController?action=LerConsulta");
             } catch (ClassNotFoundException ex) {
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

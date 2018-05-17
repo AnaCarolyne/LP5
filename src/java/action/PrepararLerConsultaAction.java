@@ -11,22 +11,25 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Consulta;
+import persistence.ConsultaDAO;
 import persistence.MedicoDAO;
+import persistence.PacienteDAO;
 
 /**
  *
  * @author Aluno
  */
-public class LerMedicoAction implements Action {
+public class PrepararLerConsultaAction implements Action {
 
-    public LerMedicoAction() {
+    public PrepararLerConsultaAction() {
     }
 
-    @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         try {
+        try {
             request.setAttribute("medicos", MedicoDAO.obterMedicos());
-            RequestDispatcher view = request.getRequestDispatcher("medicoLer.jsp");
+            request.setAttribute("pacientes", PacienteDAO.obterPacientes());
+            RequestDispatcher view = request.getRequestDispatcher("consultaCadastro.jsp");
             view.forward(request, response);
         } catch (ServletException ex) {
             ex.printStackTrace();

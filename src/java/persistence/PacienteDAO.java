@@ -32,12 +32,12 @@ public class PacienteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into paciente (nome,cpf,cep,numero,complemento,endereco,bairro,cidade,estado,email,dataNasc,sexo,telefone,celular,convenio,status)"
+            st.execute("insert into paciente (nome,cpf,cep,numero,complemento,endereco,bairro,cidade,estado,email,dataNasc,sexo,telefone,celular,convenio,status,instituicao)"
                     + " values ('" + paciente.getNome() + "', '" + paciente.getCpf() + "', '" + paciente.getCep() + "'"
                     + ", '" + paciente.getNumero() + "', '" + paciente.getComplemento() + "', '" + paciente.getEndereco() + "'"
                     + ", '" + paciente.getBairro() + "', '" + paciente.getCidade() + "', '" + paciente.getEstado() + "'"
                     + ", '" + paciente.getEmail() + "', '" + paciente.getDataNasc() + "', '" + paciente.getSexo() + "'"
-                    + ", '" + paciente.getTel() + "', '" + paciente.getCel() + "', '" + paciente.getConvenio() + "','" + paciente.getStatus() + "')");
+                    + ", '" + paciente.getTel() + "', '" + paciente.getCel() + "', '" + paciente.getConvenio() + "','" + paciente.getStatus() + "','" + paciente.getInstituicao() + "')");
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -84,7 +84,8 @@ public class PacienteDAO {
                         rs.getInt("telefone"),
                         rs.getInt("celular"),
                         rs.getString("convenio"),
-                        rs.getString("status"));
+                        rs.getString("status"),
+                        rs.getString("instituicao"));
                 pacientes.add(paciente);
             }
         } catch (SQLException e) {
@@ -120,7 +121,8 @@ public class PacienteDAO {
                     rs.getInt("telefone"),
                     rs.getInt("celular"),
                     rs.getString("convenio"),
-                    rs.getString("status"));
+                    rs.getString("status"),
+            rs.getString("instituicao"));
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

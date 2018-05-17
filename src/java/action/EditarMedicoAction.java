@@ -19,7 +19,7 @@ import model.Paciente;
 import persistence.MedicoDAO;
 import persistence.PacienteDAO;
 import state.MedicoCadastrado;
-import chainofresponsability.MedicoDemitido;
+import state.MedicoDemitido;
 import state.MedicoMemento;
 import state.MedicoSubstituto;
 import state.MedicoTransferido;
@@ -35,53 +35,10 @@ public class EditarMedicoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String acao = request.getParameter("acao");
-        if (acao.equals("prepararEditar")) {
-            prepararEditar(request, response);
-        } else if (acao.equals("confirmarEditar")) {
-            confirmarEditar(request, response);
-        }
-
-    }
-
-    public void prepararEditar(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            int codigo = Integer.parseInt(request.getParameter("codigo"));
-            Medico medico = MedicoDAO.obterMedico(codigo);
-            String s = "" + medico.getStatus();
-
-            if (s.equals("Cadastrado")) {
-                medico.setState(new MedicoCadastrado());
-                String r = medico.getNome() + " esta no estado " + medico.getState().getEstado() + " - " + medico.Demitido(medico);
-                request.setAttribute("r", r);
-            } else if (s.equals("Demitido")) {
-                medico.setState(new MedicoDemitido());
-                String r = medico.getNome() + " esta no estado " + medico.getState().getEstado() + " - " + medico.Demitido(medico);
-                request.setAttribute("r", r);
-            } else if (s.equals("Substituto")) {
-                medico.setState(new MedicoSubstituto());
-                String r = medico.getNome() + " esta no estado " + medico.getState().getEstado() + " - " + medico.Substituido(medico);
-                request.setAttribute("r", r);
-            } else if (s.equals("Transferido")) {
-                medico.setState(new MedicoTransferido());
-                String r = medico.getNome() + " esta no estado " + medico.getState().getEstado() + " - " + medico.Cadastrar(medico);
-                request.setAttribute("r", r);
-            }
-
-            request.setAttribute("medico", medico);
-            RequestDispatcher view = request.getRequestDispatcher("medicoEditado.jsp");
-            view.forward(request, response);
-        } catch (ServletException ex) {
-        } catch (IOException ex) {
-        } catch (ClassNotFoundException ex) {
-        }
-    }
-
-    private void confirmarEditar(HttpServletRequest request, HttpServletResponse response) {
         try {
             int codigo = Integer.parseInt(request.getParameter("codigo"));
             String nome = request.getParameter("txtNome");;
-            int cpf = Integer.parseInt(request.getParameter("txtCPF"));
+            String cpf = request.getParameter("txtCPF");
             int cep = Integer.parseInt(request.getParameter("txtCEP"));
             int numero = Integer.parseInt(request.getParameter("txtNumero"));
             String complemento = request.getParameter("txtComplemento");
@@ -93,7 +50,7 @@ public class EditarMedicoAction implements Action {
             String data = request.getParameter("txtDataNasc");
             String sexo = request.getParameter("txtSexo");
             int tel = Integer.parseInt(request.getParameter("txtTel"));
-            int cel = Integer.parseInt(request.getParameter("txtCel"));
+            String cel = request.getParameter("txtCel");
             String esp = request.getParameter("txtEsp");
             String crm = request.getParameter("txtCRM");
             String status = request.getParameter("txtStatus");

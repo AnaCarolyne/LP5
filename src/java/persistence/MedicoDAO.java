@@ -70,7 +70,7 @@ public class MedicoDAO {
             while (rs.next()) {
                 Medico medico = new Medico(rs.getInt("id"),
                         rs.getString("nome"),
-                        rs.getInt("cpf"),
+                        rs.getString("cpf"),
                         rs.getInt("cep"),
                         rs.getInt("numero"),
                         rs.getString("complemento"),
@@ -82,7 +82,7 @@ public class MedicoDAO {
                         rs.getString("dataNasc"),
                         rs.getString("sexo"),
                         rs.getInt("telefone"),
-                        rs.getInt("celular"),
+                        rs.getString("celular"),
                         rs.getString("especializacao"),
                         rs.getString("crm"),
                         rs.getString("status"));
@@ -107,7 +107,7 @@ public class MedicoDAO {
             rs.first();
             medico = new Medico(rs.getInt("id"),
                     rs.getString("nome"),
-                    rs.getInt("cpf"),
+                    rs.getString("cpf"),
                     rs.getInt("cep"),
                     rs.getInt("numero"),
                     rs.getString("complemento"),
@@ -119,12 +119,11 @@ public class MedicoDAO {
                     rs.getString("dataNasc"),
                     rs.getString("sexo"),
                     rs.getInt("telefone"),
-                    rs.getInt("celular"),
+                    rs.getString("celular"),
                     rs.getString("especializacao"),
                     rs.getString("crm"),
                     rs.getString("status"));
-            //NULL PARA SER SETADO
-            //turma.setMatriculaProfessorCoordenador(rs.getInt("professorCoordenador")); CASO TENHA CHAVE ESTRANGEIRA
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -141,7 +140,7 @@ public class MedicoDAO {
                     + "estado=?,email = ?,dataNasc=?,sexo=?,telefone=?,celular=?,especializacao=?,crm=?, status=? where id = ?";
             PreparedStatement comando = conn.prepareStatement(sql);
             comando.setString(1, medico.getNome());
-            comando.setInt(2, medico.getCpf());
+            comando.setString(2, medico.getCpf());
             comando.setInt(3, medico.getCep());
             comando.setInt(4, medico.getNumero());
             comando.setString(5, medico.getComplemento());
@@ -153,7 +152,7 @@ public class MedicoDAO {
             comando.setString(11, medico.getDataNasc());
             comando.setString(12, medico.getSexo());
             comando.setInt(13, medico.getTel());
-            comando.setInt(14, medico.getCel());
+            comando.setString(14, medico.getCel());
             comando.setString(15, medico.getEspecializacao());
             comando.setString(16, medico.getCrm());
             comando.setString(17, medico.getStatus());

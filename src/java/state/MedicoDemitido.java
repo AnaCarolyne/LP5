@@ -11,31 +11,26 @@ import model.Medico;
  *
  * @author Ana
  */
-public class MedicoCadastrado implements MedicoEstado{
+public class MedicoDemitido implements MedicoEstado {
 
-    @Override
     public String getEstado() {
-        return"Cadastrado";
+        return "Demitido";
     }
 
-    @Override
     public String getCadastrar(Medico e) {
-        return "Cadastro não realizado uma vez que Cadastrado";
+        return "Cadastro não realizado uma vez que demitido";
     }
 
-    @Override
     public String getDemitido(Medico e) {
         e.setState(new MedicoDemitido());
-        return "Medico(a) pode ser demitido";
+        return "Medico(a) não pode ser  Demitido";
     }
 
-    @Override
     public String getSubstituto(Medico e) {
-        return "Medico(a) não pode ser substituto";
+        return "Medico não pode ser substituto";
     }
-        @Override
+
     public String getTransferido(Medico e) {
-        e.setState(new MedicoTransferido());
-        return "Medico(a) pode ser substituto";
+        return "Medico(a) não pode ser Transferido";
     }
 }

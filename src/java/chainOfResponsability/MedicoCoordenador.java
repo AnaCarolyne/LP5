@@ -3,26 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package state;
+package chainOfResponsability;
 
-import chainofresponsability.RolReceita;
+import state.Medico;
 
 /**
  *
  * @author anacarolyne.franca
  */
-public class MedicoSecretario extends Medico{
-     public MedicoSecretario(Medico superior) {
-        listaDocumentos.add(RolReceita.getIntace().getTipoReceitaMedicamento());
+public class MedicoCoordenador extends Medico {
+
+
+    public MedicoCoordenador(Medico superior) {
+        listaDocumentos.add(RolReceita.getIntace().getTipoReceitaExame());
         setMedicoSuperior(superior);
     }
 
     @Override
     public String getDescricaoCargo() {
 
-        return "Secretario";
+        return "Coordenador";
     }
 
    
 }
-

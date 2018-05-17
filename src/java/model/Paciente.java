@@ -8,6 +8,7 @@ package model;
 import java.util.Observable;
 import java.util.Observer;
 import state.PacienteCadastrado;
+import state.PacienteConvenio;
 import state.PacienteEstado;
 
 /**
@@ -36,6 +37,8 @@ public class Paciente implements Observer {
     private PacienteEstado state;
     private Observable consulta;
     private String msg;
+    private String instituicao;
+    private String origemIns;
     
     public Paciente() {
         this.state = new PacienteCadastrado();
@@ -45,7 +48,7 @@ public class Paciente implements Observer {
         this.id = id;
     }
 
-    public Paciente(int id, String nome, int cpf, int cep, int numero, String complemento, String endereco, String bairro, String cidade, String estado, String email, String dataNasc, String sexo, int tel, int cel, String convenio, String status) {
+    public Paciente(int id, String nome, int cpf, int cep, int numero, String complemento, String endereco, String bairro, String cidade, String estado, String email, String dataNasc, String sexo, int tel, int cel, String convenio, String status,String instituicao) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -63,6 +66,28 @@ public class Paciente implements Observer {
         this.cel = cel;
         this.convenio = convenio;
         this.status = status;
+        this.instituicao = instituicao;
+    }
+
+    public String getInstituicao() {
+        return instituicao;
+    }
+
+    public void setInstituicao(String instituicao) {
+        this.instituicao = instituicao;
+    }
+     public String getOrigemIns() {
+        return origemIns;
+    }
+
+    public void setOrigemIns(String o) {
+        this.origemIns = o;
+    }
+    
+    public void setInstituicaoOrigem(){
+          PacienteConvenio paciente1 = new PacienteConvenio();
+        paciente1.setNome(getNome());
+        paciente1.setInstituicaoOrigem(getInstituicao());
     }
 
     public String getConvenio() {
@@ -238,6 +263,4 @@ public class Paciente implements Observer {
             msg = consulta.getMensagem();
         }
     }
-
-   
 }

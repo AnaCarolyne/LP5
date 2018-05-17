@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Paciente;
 import persistence.PacienteDAO;
 import state.PacienteCadastrado;
-import state.PacienteConvenio;
-import state.PacienteConvenio1;
 import state.PacienteTransferido;
 
 /**
@@ -32,48 +30,9 @@ public class EditarPacienteAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String acao = request.getParameter("acao");
-        if (acao.equals("prepararEditar")) {
-            prepararEditar(request, response);
-        } else if (acao.equals("confirmarEditar")) {
-            confirmarEditar(request, response);
-        }
-
-    }
-
-    public void prepararEditar(HttpServletRequest request, HttpServletResponse response) {
-        try {
-        
-            int codigo = Integer.parseInt(request.getParameter("codigo"));
-            Paciente paciente = PacienteDAO.obterPaciente(codigo);
-            String s = paciente.getStatus();
-
-            if (s.equals("Cadastrado")) {
-                paciente.setState(new PacienteCadastrado());
-                String r = paciente.getNome() + " esta no estado " + paciente.getState().getEstado(paciente) + " - " + paciente.Transferido(paciente);
-                request.setAttribute("r", r);
-            }else if (s.equals("Transferido")) {
-                paciente.setState(new PacienteTransferido());
-                String r = paciente.getNome() + " esta no estado " + paciente.getState().getEstado(paciente) + " - " + paciente.Transferido(paciente);
-                request.setAttribute("r", r);
-            }
-            
-            
-      
-
-            request.setAttribute("paciente", paciente);
-            RequestDispatcher view = request.getRequestDispatcher("pacienteEditado.jsp");
-            view.forward(request, response);
-        } catch (ServletException ex) {
-        } catch (IOException ex) {
-        } catch (ClassNotFoundException ex) {
-        }
-    }
-
-    private void confirmarEditar(HttpServletRequest request, HttpServletResponse response) {
         try {
             int codigo = Integer.parseInt(request.getParameter("codigo"));
-            String nome = request.getParameter("txtNome");;
+            String nome = request.getParameter("txtNome");
             int cpf = Integer.parseInt(request.getParameter("txtCPF"));
             int cep = Integer.parseInt(request.getParameter("txtCEP"));
             int numero = Integer.parseInt(request.getParameter("txtNumero"));
@@ -88,12 +47,13 @@ public class EditarPacienteAction implements Action {
             int tel = Integer.parseInt(request.getParameter("txtTel"));
             int cel = Integer.parseInt(request.getParameter("txtCel"));
             String convenio = request.getParameter("txtConvenio");
-            String status = request.getParameter("txtCStatus");
+            String status = request.getParameter("txtStatus");
+            String ins = request.getParameter("txtIns");
 
             if (nome.equals("")) {
                 response.sendRedirect("index.jsp");
             } else {
-                Paciente paciente = new Paciente(codigo, nome, cpf, cep, numero, complemento, endereco, bairro, cidade, estado, email, data, sexo, tel, cel, convenio, status);
+                Paciente paciente = new Paciente(codigo, nome, cpf, cep, numero, complemento, endereco, bairro, cidade, estado, email, data, sexo, tel, cel, convenio, status,ins);
 
                 PacienteDAO.alterar(paciente);
                 RequestDispatcher view = request.getRequestDispatcher("FrontController?action=LerPaciente");

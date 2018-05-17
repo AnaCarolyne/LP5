@@ -5,7 +5,7 @@
  */
 package state;
 
-import chainofresponsability.Receita;
+import chainOfResponsability.Receita;
 import java.util.ArrayList;
 
 /**

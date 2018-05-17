@@ -7,31 +7,36 @@ package action;
 
 import controller.Action;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import persistence.MedicoDAO;
+import model.Consulta;
+import persistence.ConsultaDAO;
 
 /**
  *
  * @author Aluno
  */
-public class LerMedicoAction implements Action {
+public class PrepararEditarConsultaAction implements Action {
 
-    public LerMedicoAction() {
+    public PrepararEditarConsultaAction() {
     }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         try {
-            request.setAttribute("medicos", MedicoDAO.obterMedicos());
-            RequestDispatcher view = request.getRequestDispatcher("medicoLer.jsp");
+        try {
+            int codigo = Integer.parseInt(request.getParameter("codigo"));
+            Consulta consulta = ConsultaDAO.obterConsulta(codigo);
+            request.setAttribute("consulta", consulta);
+            RequestDispatcher view = request.getRequestDispatcher("consultaEditado.jsp");
             view.forward(request, response);
         } catch (ServletException ex) {
-            ex.printStackTrace();
+        } catch (IOException ex) {
         } catch (ClassNotFoundException ex) {
-            ex.printStackTrace();
         }
     }
 }

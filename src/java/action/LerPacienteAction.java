@@ -16,7 +16,6 @@ import model.Paciente;
 import persistence.ConsultaDAO;
 import persistence.PacienteDAO;
 import state.PacienteConvenio;
-import state.PacienteConvenio1;
 
 /**
  *
@@ -29,21 +28,8 @@ public class LerPacienteAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
-        //PadraoTemplateMethod
         try {
-        PacienteConvenio paciente1 = new PacienteConvenio();
-        paciente1.setNome(" luiz ");
-        paciente1.setInstituicaoOrigem(" publuco ");
-        PacienteConvenio1 paciente2= new PacienteConvenio1();
-        paciente2.setNome(" juliana ");
-        paciente2.setInstituicaoOrigem(" unimed ");
-        
-        System.out.println(paciente1.getDadosPaciente());
-         System.out.println(paciente2.getDadosPaciente());
-      
             Consulta c = new Consulta();
-
             Paciente p = new Paciente(c);            
             c.setEdicao(" tem consulta marcada com medico(a) ");
                

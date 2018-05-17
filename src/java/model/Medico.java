@@ -17,7 +17,7 @@ public class Medico {
 
     private int id;
     private String nome;
-    private int cpf;
+    private String cpf;
     private int cep;
     private int numero;
     private String complemento;
@@ -29,7 +29,7 @@ public class Medico {
     private String dataNasc;
     private String sexo;
     private int tel;
-    private int cel;
+    private String cel;
     private String especializacao;
     private String crm;
     private String status;
@@ -43,7 +43,7 @@ public class Medico {
         this.id = id;
     }
 
-    public Medico(int id, String nome, int cpf, int cep, int numero, String complemento, String endereco, String bairro, String cidade, String estado, String email, String dataNasc, String sexo, int tel, int cel, String especializacao, String crm, String status) {
+    public Medico(int id, String nome, String cpf, int cep, int numero, String complemento, String endereco, String bairro, String cidade, String estado, String email, String dataNasc, String sexo, int tel, String cel, String especializacao, String crm, String status) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -88,11 +88,11 @@ public class Medico {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -184,11 +184,11 @@ public class Medico {
         this.tel = tel;
     }
 
-    public int getCel() {
+    public String getCel() {
         return cel;
     }
 
-    public void setCel(int cel) {
+    public void setCel(String cel) {
         this.cel = cel;
     }
 
