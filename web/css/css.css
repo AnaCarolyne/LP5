@@ -1,0 +1,355 @@
+body{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: baseline;
+    background: #f1f1f1;
+}
+#top{
+    width: 100%;
+    min-width: 50%;
+    height: 125px;
+    background: #2c67cd;
+}
+#nomeTitulo{
+    color: #fff;
+    font-weight: bold;
+    margin: 0px 0 0 0;
+    padding: 25px 0px 1px 17px;
+    font-size: 36px;
+    font-family: "open_sansextrabold", Arial, Helvetica, sans-serif;
+}
+#subTitulo{
+    color: #fff;
+    font-weight: 100;
+    font-size: 15px;
+    padding: 0 0 0 20px;
+}
+#menuCadastros{
+    display: block;
+    float: right;
+    clear: none;
+    padding-bottom: 2px;
+    font-size: 0.93em;
+    padding-right: 60px;
+    color: #dcdcdc;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#menuCadastros li{
+    display: inline;
+    margin-right: 0.5em;
+}
+
+#menuCadastros{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+#logo{
+    float: left;
+}
+#pesq{
+    background: #0f4098; 
+    clear: both;
+    margin: 0;
+    padding: 5px 0;
+    max-width: 100% !important;
+    line-height: 20px;
+}
+#menuPesquisas{
+    margin: 0 auto;
+    max-width: 960px;
+    text-align: right;
+}
+#pesq li{
+    display: inline;
+}
+#pesq{
+    border-right: 1px solid #87a0cc;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.imgLogo{
+    float: left;
+    width: 80px;
+    padding: 8px 0 0 20px;
+}
+.pesq:hover{
+    background: #2c67cd;
+    padding: 6px 0px 8px 0px;
+}
+.pesqat{
+    background: #2c67cd;
+    padding: 6px 0px 3px 0px;
+    text-decoration: none;
+    color: #fff;
+}
+.pesqt{
+    border-right: 1px solid #87a0cc;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.pesqTitulo{
+    color: #00f921;
+    text-transform: uppercase;
+    font-family: unset;
+    font-weight: bold;
+    font-size: 13px;
+    text-shadow: 0px 0px 5px #a2a2a2;
+}
+#imghome{
+    width: 80%;
+    margin: 20px 0 0 10%;
+}
+.tbCor{
+    background: #ecececf9;
+    box-shadow: 0px 0px 3px 3px #00000054;
+    margin-top: 15px;
+}
+.tbTituloNome{
+    background: #848dff;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    padding-left: 24px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+.btnOptxt{
+    background: #828bfff9;
+    height: 31px;
+    padding: 5px 23px 5px 23px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btnOpMenu{
+    background: #828bfff9;
+    width: 90px;
+    height: 31px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+}
+#tCadastro{
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+    margin-top: 75px;
+}
+.tb{
+    background: #ecececf9;
+    background: #ecececf9;
+    box-shadow: 0px 0px 3px 3px #00000054;
+    margin-top: 15px;
+}
+.tbTitulo{
+    background: #848dff;
+}
+.btnOp{
+    background: #828bfff9;
+    height: 50px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+}
+.tbCor{
+    background: #ecececf9;
+    box-shadow: 0px 0px 3px 3px #00000054;
+    margin-top: 15px;
+}
+.tbCorConsulta{
+    background: #ecececf9;
+    box-shadow: 0px 0px 3px 3px #00000054;
+    margin-top: 15px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.tbCorConsulta tr td{
+    width: 115px;
+}
+.nomeSelect {
+    width: 540px;
+    height: 25px;
+}
+.horaSelect {
+    width: 173px;
+    height: 25px;
+}
+.tbCor tr td {
+    font-weight: bold;
+    padding-top: 6px;
+}
+.btnOpMenu{
+    width: 90px;
+    height: 31px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+    background:#828bfff9;
+}
+.btnOpEditar{
+    width: 35px;
+    height: 24px;
+    /* padding: 9px 3px 7px 4px; */
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #b7b7b7;
+    /* border-radius: 5px; */
+    background: url(../img/editar.png) no-repeat;
+}
+.btnOpDeletar{
+    width: 35px;
+    height: 24px;
+    /* padding: 9px 3px 7px 4px; */
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #b7b7b7;
+    /* border-radius: 5px; */
+    background: url(../img/deletar.png) no-repeat;
+}
+.btnOpDesfazer{
+    width: 35px;
+    height: 24px;
+    /* padding: 9px 3px 7px 4px; */
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #b7b7b7;
+    /* border-radius: 5px; */
+    background: url(../img/desfazer.png) no-repeat;
+}
+.acao{
+    font-weight: bold;
+    text-align: center;
+    background: #b7b7b7;
+}
+.btnOpMenu2{
+    background: #828bfff9;
+    width: 90px;
+    height: 25px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+.btnOpMenu3{
+    background: #828bfff9;
+    width: 90px;
+    height: 25px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+}
+.btnOptxt2{
+    background: #828bfff9;
+    height: 31px;
+    padding: 3px 23px 5px 23px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btnOptxt{
+    background: #828bfff9;
+    height: 31px;
+    padding: 5px 23px 5px 23px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid #4c5196;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.obsconsulta {
+    width: 534px;
+}
+.tbTituloNome{
+    background: #848dff;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    padding-left: 24px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+.title{
+    padding-top: 10px;
+    /* font-weight: bold; */
+    text-align: center;
+    border-bottom: 1px solid #b3b3b3;
+    /* border-right: 5px solid #b3b3b3; */
+    text-align: justify;
+}
+.titleP{
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #b3b3b3;
+    border-right: 2px solid #ececec;
+    /* text-align: justify; */
+    background: #b7b7b7;
+}
+.title2{
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 5px solid #b3b3b3;
+    border-left: 5px solid #b3b3b3;
+}
+.txt{
+    width: 738px;
+}
+.msg{
+    background: #ecececf9;
+    box-shadow: 0px 0px 3px 3px #00000054;
+    margin-top: 15px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 450px;
+    text-align: center;
+}
+.descMsg{
+    padding: 20px;
+}
+#mensagem{
+    position: absolute;
+    top: 280px;
+    left: 35%;
+    display: none;
+}
+.mc2{
+    padding: 4px 0 4px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    font-family: sans-serif;
+}
+.mc a{
+    padding: 4px 0 4px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #7db9ff !important;
+    font-family: sans-serif;
+}
+
